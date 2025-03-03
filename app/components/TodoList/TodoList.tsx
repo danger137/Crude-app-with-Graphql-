@@ -23,7 +23,7 @@ interface Todo {
 export default function Home() {
   const queryClient = useQueryClient();
 
-  // Fetch Todos
+
   const { data: todos = [], isLoading, error } = useQuery<Todo[]>({
     queryKey: ["todos"],
     queryFn: async () => {
@@ -42,7 +42,6 @@ export default function Home() {
   const [category, setCategory] = useState("");
   const [editingTodo, setEditingTodo] = useState<Todo | null>(null);
 
-  // Add/Update Todo Mutation
   const saveTodoMutation = useMutation({
     mutationFn: async () => {
       const mutation = editingTodo
@@ -57,7 +56,7 @@ export default function Home() {
     },
   });
 
-  // Delete Todo Mutation
+
   const deleteTodoMutation = useMutation({
     mutationFn: async (id: string) => {
       const mutation = `mutation { deleteTodo(id: "${id}") }`;
