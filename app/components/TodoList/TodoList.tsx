@@ -66,7 +66,6 @@ export default function Home() {
       queryClient.invalidateQueries({ queryKey: ["todos"] });
     },
   });
-
   const resetForm = () => {
     setEditingTodo(null);
     setTask("");
